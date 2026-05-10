@@ -123,6 +123,9 @@ body {
   position: relative;
   overflow: hidden;
 }
+.panel[id] {
+  scroll-margin-top: 76px;
+}
 .panel::before {
   content: "";
   position: absolute; inset: 0;
@@ -289,6 +292,125 @@ body {
 .stat-num { font-family: "Press Start 2P", monospace; font-size: 10px; color: var(--muted); letter-spacing: 1px; }
 .stat-val { font-family: "Press Start 2P", monospace; font-size: 22px; color: var(--gold); margin: 6px 0 4px; }
 .stat-sub { font-size: 11px; color: var(--muted); }
+
+/* Impact dashboard */
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 12px;
+}
+.impact-card {
+  min-height: 176px;
+  padding: 14px;
+  background:
+    linear-gradient(180deg, rgba(17,25,58,0.92), rgba(12,18,36,0.96));
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  transition: transform .2s, border-color .2s, box-shadow .2s;
+}
+.impact-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0,255,209,0.10), transparent 42%);
+  opacity: .7;
+  pointer-events: none;
+}
+.impact-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--neon);
+  box-shadow: 0 0 18px rgba(0,255,209,0.14);
+}
+.impact-num {
+  position: relative;
+  font-family: "Press Start 2P", monospace;
+  font-size: 20px;
+  line-height: 1.2;
+  color: var(--gold);
+  margin-bottom: 10px;
+  text-shadow: 0 0 12px rgba(255,204,77,0.25);
+}
+.impact-label {
+  position: relative;
+  min-height: 32px;
+  font-family: "Press Start 2P", monospace;
+  font-size: 8px;
+  line-height: 1.45;
+  color: var(--neon);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.impact-card p {
+  position: relative;
+  margin: 0;
+  color: #cdd4e4;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+/* AI finance OS + skill tree */
+.ai-grid,
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+.skill-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.ai-card,
+.skill-card {
+  background: #0c1224;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+  transition: transform .2s, border-color .2s, box-shadow .2s;
+}
+.ai-card:hover,
+.skill-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--neon);
+  box-shadow: 0 0 18px rgba(0,255,209,0.14);
+}
+.ai-kicker {
+  font-family: "Press Start 2P", monospace;
+  font-size: 8px;
+  color: var(--neon-2);
+  letter-spacing: 1px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+.ai-card h3,
+.skill-card h3 {
+  margin: 0 0 10px;
+  color: #fff;
+  font-size: 15px;
+  line-height: 1.35;
+}
+.ai-card p {
+  margin: 0;
+  color: #cdd4e4;
+  font-size: 13px;
+  line-height: 1.65;
+}
+.chip-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+.chip-cloud span {
+  padding: 5px 8px;
+  border: 1px solid rgba(0,255,209,0.24);
+  border-radius: 6px;
+  background: #11193a;
+  color: #bfeee6;
+  font-size: 11px;
+  line-height: 1.35;
+}
 
 /* Quests */
 .quests { display: grid; gap: 12px; }
@@ -649,6 +771,16 @@ body {
 }
 
 /* Responsive */
+@media (max-width: 980px) {
+  .impact-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .ai-grid,
+  .skill-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 720px) {
   .hud {
     align-items: flex-start;
@@ -668,6 +800,14 @@ body {
   .hero-actions,
   .focus-strip {
     justify-content: center;
+  }
+  .impact-grid,
+  .ai-grid,
+  .skill-grid {
+    grid-template-columns: 1fr;
+  }
+  .impact-card {
+    min-height: auto;
   }
   .quest { grid-template-columns: 50px 1fr; }
   .quest-cta { display: none; }
