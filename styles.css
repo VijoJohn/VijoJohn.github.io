@@ -5,27 +5,36 @@
   --border: #1f2740;
   --neon: #00ffd1;
   --neon-2: #ff2bd6;
-  --gold: #ffcc4d;
+  --gold: #ffe45f;
+  --gold-strong: #fff18a;
   --hp: #ff4d6d;
   --mp: #4d8bff;
   --xp: #00ffd1;
   --text: #e7ecf3;
   --muted: #8a93a8;
-  --legendary: #ffcc4d;
+  --legendary: #ffe45f;
   --epic: #b388ff;
   --rare: #4dc4ff;
+  --font-body: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  --font-display: "Press Start 2P", ui-monospace, Menlo, Consolas, monospace;
 }
 
 * { box-sizing: border-box; }
+
+html {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
 
 html, body {
   margin: 0;
   padding: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  font-family: var(--font-body);
   min-height: 100%;
   overflow-x: hidden;
+  letter-spacing: 0;
 }
 
 body {
@@ -765,6 +774,60 @@ body {
 }
 .form-status.ok { color: var(--neon); }
 .form-status.err { color: var(--hp); }
+
+/* Final type and contrast normalization */
+.hud,
+.panel-header,
+.level-badge,
+.player-info h1,
+.stat-num,
+.stat-val,
+.impact-num,
+.impact-label,
+.ai-kicker,
+.quest-cta,
+.rarity,
+.cta-body h2,
+.boot,
+.xp-pop,
+.now-label,
+.form-field > span {
+  font-family: var(--font-display);
+  letter-spacing: 0;
+}
+
+.btn,
+.quest-title,
+.quest-desc,
+.badge,
+.tl-date,
+.tl-title,
+.tl-org,
+.tl-bullets,
+.now-value,
+.form-field input,
+.form-field textarea,
+.form-status,
+.chip-cloud span,
+.impact-card p,
+.ai-card p,
+.lore p {
+  font-family: var(--font-body);
+  letter-spacing: 0;
+}
+
+.stat-val,
+.impact-num,
+.xp-pop {
+  color: var(--gold-strong);
+  text-shadow:
+    0 0 10px rgba(255,228,95,0.42),
+    0 0 22px rgba(255,228,95,0.2);
+}
+
+.badge b {
+  line-height: 1.35;
+}
 
 @media (max-width: 540px) {
   .form-row { grid-template-columns: 1fr; }
