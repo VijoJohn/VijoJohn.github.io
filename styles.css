@@ -60,6 +60,7 @@ body {
 .hud {
   position: sticky; top: 0; z-index: 10;
   display: flex; justify-content: space-between; align-items: center;
+  gap: 18px;
   padding: 12px 24px;
   background: rgba(7,10,20,0.7);
   backdrop-filter: blur(8px);
@@ -74,6 +75,27 @@ body {
   margin-right: 8px; animation: pulse 1.6s infinite;
 }
 .hud-text { color: var(--neon); }
+.hud-left,
+.hud-right {
+  flex: 0 0 auto;
+}
+.hud-nav {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex: 1 1 auto;
+}
+.hud-nav a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color .2s, text-shadow .2s;
+}
+.hud-nav a:hover,
+.hud-nav a:focus-visible {
+  color: var(--neon);
+  text-shadow: 0 0 8px rgba(0,255,209,0.45);
+  outline: none;
+}
 
 @keyframes pulse {
   0%, 100% { opacity: 1; }
@@ -109,12 +131,21 @@ body {
 }
 .panel-header {
   display: flex; justify-content: space-between; align-items: center;
+  gap: 14px;
   margin-bottom: 18px;
   font-family: "Press Start 2P", monospace;
   font-size: 10px;
   letter-spacing: 1px;
 }
-.panel-tag { color: var(--neon); }
+.panel-tag {
+  color: var(--neon);
+  line-height: 1.45;
+}
+.panel-tag::before {
+  content: ">";
+  color: var(--neon-2);
+  margin-right: 8px;
+}
 .panel-meta { color: var(--muted); }
 
 /* Player card */
@@ -178,6 +209,28 @@ body {
 }
 .cursor { color: var(--neon); animation: blink 1s steps(1) infinite; }
 @keyframes blink { 50% { opacity: 0; } }
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 16px;
+}
+
+.focus-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 18px;
+}
+.focus-strip span {
+  padding: 5px 9px;
+  border: 1px solid rgba(0,255,209,0.24);
+  border-radius: 6px;
+  background: rgba(12,18,36,0.76);
+  color: #bfeee6;
+  font-size: 11px;
+}
 
 /* Glitch */
 .glitch { position: relative; }
@@ -597,10 +650,25 @@ body {
 
 /* Responsive */
 @media (max-width: 720px) {
+  .hud {
+    align-items: flex-start;
+    padding: 12px 14px;
+  }
+  .hud-nav {
+    display: none;
+  }
+  .panel-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
   .player-body { grid-template-columns: 1fr; text-align: center; }
   .avatar-frame { width: 130px; height: 130px; }
   .avatar-emoji { font-size: 60px; }
   .player-info h1 { font-size: 22px; }
+  .hero-actions,
+  .focus-strip {
+    justify-content: center;
+  }
   .quest { grid-template-columns: 50px 1fr; }
   .quest-cta { display: none; }
 }

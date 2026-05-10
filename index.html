@@ -30,6 +30,11 @@
       <span class="dot"></span>
       <span class="hud-text">SYSTEM ONLINE</span>
     </div>
+    <nav class="hud-nav" aria-label="Primary navigation">
+      <a href="#quests">Projects</a>
+      <a href="#career">Career</a>
+      <a href="#transmission">Contact</a>
+    </nav>
     <div class="hud-right">
       <span class="hud-text" id="clock">--:--:--</span>
     </div>
@@ -40,7 +45,7 @@
     <!-- ============== PLAYER PROFILE ============== -->
     <section class="panel reveal player-card">
       <div class="panel-header">
-        <span class="panel-tag">// PLAYER PROFILE</span>
+        <span class="panel-tag">Player Profile</span>
         <span class="level-badge">LVL <span id="level">99</span></span>
       </div>
 
@@ -72,6 +77,19 @@
           <h1 class="glitch" data-text="Vijo John">Vijo John</h1>
           <p class="tagline">&gt; <span id="typer"></span><span class="cursor">▋</span></p>
 
+          <div class="hero-actions" aria-label="Portfolio actions">
+            <a class="btn primary" href="#quests">View Projects</a>
+            <a class="btn" href="resume.pdf" download target="_blank" rel="noopener">Download Resume</a>
+            <a class="btn" href="#transmission">Contact</a>
+          </div>
+
+          <div class="focus-strip" aria-label="Core strengths">
+            <span>Agentic AI</span>
+            <span>Fund Administration</span>
+            <span>Finance Transformation</span>
+            <span>Controls &amp; Governance</span>
+          </div>
+
           <div class="bars">
             <div class="bar">
               <div class="bar-label"><span>HP</span><span>980 / 1000</span></div>
@@ -93,7 +111,7 @@
     <!-- ============== NOW STATUS TICKER ============== -->
     <section class="panel reveal now-panel">
       <div class="panel-header">
-        <span class="panel-tag">// NOW</span>
+        <span class="panel-tag">Now</span>
         <span class="panel-meta now-live"><span class="now-dot"></span>LIVE</span>
       </div>
       <div class="now-grid">
@@ -124,8 +142,8 @@
     <!-- ============== ABOUT / LORE ============== -->
     <section class="panel reveal">
       <div class="panel-header">
-        <span class="panel-tag">// LORE.txt</span>
-        <span class="panel-meta">[ press F to read ]</span>
+        <span class="panel-tag">About</span>
+        <span class="panel-meta">Finance leader building agentic systems</span>
       </div>
       <div class="lore">
         <p id="bio-line">
@@ -154,9 +172,9 @@
     </section>
 
     <!-- ============== PROJECTS / QUESTS ============== -->
-    <section class="panel reveal">
+    <section class="panel reveal" id="quests">
       <div class="panel-header">
-        <span class="panel-tag">// QUEST_LOG</span>
+        <span class="panel-tag">Quest Log</span>
         <span class="panel-meta" id="quest-meta">live from github · loading…</span>
       </div>
 
@@ -225,7 +243,7 @@
     <!-- ============== ACHIEVEMENTS ============== -->
     <section class="panel reveal">
       <div class="panel-header">
-        <span class="panel-tag">// ACHIEVEMENTS</span>
+        <span class="panel-tag">Achievements</span>
         <span class="panel-meta" id="ach-meta">unlocked · loading…</span>
       </div>
       <div class="badges">
@@ -245,7 +263,7 @@
     <!-- ============== CAREER / RESUME ============== -->
     <section class="panel reveal" id="career">
       <div class="panel-header">
-        <span class="panel-tag">// CAREER_SAVE_FILE</span>
+        <span class="panel-tag">Career Save File</span>
         <a class="panel-meta resume-link" href="resume.pdf" download target="_blank" rel="noopener">⬇ download resume.pdf</a>
       </div>
 
@@ -343,7 +361,7 @@
     <!-- ============== TRANSMISSION FORM ============== -->
     <section class="panel reveal" id="transmission">
       <div class="panel-header">
-        <span class="panel-tag">// SEND_TRANSMISSION</span>
+        <span class="panel-tag">Send Transmission</span>
         <span class="panel-meta">→ vjohn1111@gmail.com</span>
       </div>
       <form id="contact-form" class="contact-form" novalidate>
@@ -371,7 +389,7 @@
     <!-- ============== CONTACT ============== -->
     <section class="panel reveal cta">
       <div class="panel-header">
-        <span class="panel-tag">// PARTY_INVITE</span>
+        <span class="panel-tag">Party Invite</span>
       </div>
       <div class="cta-body">
         <h2>Ready Player Two?</h2>
