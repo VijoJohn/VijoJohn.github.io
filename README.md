@@ -51,6 +51,37 @@ Everything is in `index.html`:
   of the inline `<style>` block (`--accent`, `--blue`, `--bg`, etc.).
 - **Resume** — replace `resume.pdf` in this folder (keep the filename).
 
+## Resume download gate (Formspree)
+
+The **Download Resume** button opens a modal asking for the visitor's name +
+email before the download starts, and notifies you by email on every download.
+
+**One-time setup (required for notifications):**
+
+1. Sign up free at <https://formspree.io> (free tier = 50 submissions/month).
+2. Create a new form; copy its endpoint — it looks like
+   `https://formspree.io/f/abcdwxyz`.
+3. In `index.html`, find this line in the inline `<script>` and paste your
+   endpoint in place of the placeholder:
+
+   ```js
+   var FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID"; // <-- REPLACE THIS
+   ```
+
+4. Commit + push. On the **first** real submission, Formspree emails you a
+   one-time confirmation link — click it to activate notifications.
+
+**Behaviour:**
+
+- Until the endpoint is configured, the modal still appears and the download
+  still works — you just won't get notified (a console warning is logged).
+- This is a **soft gate**: it captures leads and notifies you, but because the
+  site is static and public, the raw `resume.pdf` URL is still directly
+  reachable by anyone who guesses it. True hard-blocking would require a
+  serverless backend (out of scope for GitHub Pages).
+- If JavaScript is disabled, the link falls back to opening `resume.pdf`
+  directly (graceful degradation).
+
 ## Files
 
 | File | Status |
