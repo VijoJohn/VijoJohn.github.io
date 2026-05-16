@@ -134,15 +134,25 @@
       if(bad){ statusEl.textContent='Please enter your name and a valid email.'; statusEl.className='rg-status err'; return; }
 
       submitBtn.disabled=true; statusEl.textContent='Sending…'; statusEl.className='rg-status';
-      function finish(){ statusEl.textContent='Thanks! Your download is starting…'; statusEl.className='rg-status ok'; triggerDownload(); setTimeout(closeModal,1700); submitBtn.disabled=false; form.reset(); }
+      function finish(notified){ statusEl.textContent = notified ? 'Thanks! Your download is starting…' : 'Your download is starting…'; statusEl.className='rg-status ok'; triggerDownload(); setTimeout(closeModal,1800); submitBtn.disabled=false; form.reset(); }
 
       if(FORMSPREE_ENDPOINT.indexOf('YOUR_FORM_ID')!==-1){
         console.warn('[resume-gate] Formspree endpoint not set — set FORMSPREE_ENDPOINT in index.html to receive download notifications.');
-        finish(); return;
+        finish(false); return;
       }
-      fetch(FORMSPREE_ENDPOINT,{ method:'POST', headers:{'Accept':'application/json','Content-Type':'application/json'},
+
+      var ctrl=new AbortController(); var to=setTimeout(function(){ ctrl.abort(); },12000);
+      fetch(FORMSPREE_ENDPOINT,{ method:'POST', signal:ctrl.signal, headers:{'Accept':'application/json','Content-Type':'application/json'},
         body:JSON.stringify({name:name,email:email,company:company,_subject:'Portfolio: resume downloaded by '+name}) })
-        .then(function(){ finish(); }).catch(function(){ finish(); });
+        .then(function(res){ clearTimeout(to);
+          if(res.ok){ finish(true); return; }
+          return res.json().catch(function(){ return {}; }).then(function(data){
+            var msg=(data && data.errors && data.errors.map(function(x){ return x.message; }).join(', ')) || ('Formspree HTTP '+res.status);
+            console.warn('[resume-gate] notification not delivered:', msg, '(if "form not confirmed", check your inbox for the Formspree activation email)');
+            finish(false);
+          });
+        })
+        .catch(function(err){ clearTimeout(to); console.warn('[resume-gate] submit failed:', (err && err.message) || err); finish(false); });
     });
   })();
   </script>
