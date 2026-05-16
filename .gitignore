@@ -13,6 +13,9 @@ desktop.ini
 # Logs
 *.log
 
+# Claude Code session/worktree data (never publish to a public repo)
+.claude/
+
 # Local secrets
 .env
 .env.local
