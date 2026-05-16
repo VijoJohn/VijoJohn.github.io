@@ -90,7 +90,6 @@ email before the download starts, and notifies you by email on every download.
 | `resume.pdf` | Linked from the hero "Download Resume" button |
 | `README.md` | This file |
 | `.gitignore` | Excludes OS/editor junk, `*.log`, `.env*`, `node_modules/` |
-| `styles.css`, `script.js` | **Legacy / unused** — leftovers from an earlier gamified version, no longer referenced by `index.html`. Safe to delete. |
 
 ## Deploy (GitHub Pages)
 
