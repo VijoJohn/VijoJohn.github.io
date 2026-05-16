@@ -1,52 +1,77 @@
-# 🎮 Vijo John — Gamified Portfolio
+# Vijo John — Executive AI Transformation Portfolio
 
-A retro-futuristic, RPG-themed portfolio site for **Vijo John** — *Agentic AI Architect*.
-Live data is fetched from the GitHub API on page load.
+A professional, single-page portfolio for **Vijo John** — finance transformation
+leader building practical Agentic AI systems for the modern CFO office, finance
+operations, fund administration, and enterprise controls.
+
+**Live site:** https://vijojohn.github.io
+
+## Overview
+
+The site is a **single self-contained `index.html`** — all CSS lives in an inline
+`<style>` block and the only script sets the copyright year. No build step, no
+dependencies, no external CSS/JS to load (Inter is the only web font). Just open
+the file and it works.
+
+Theme: deep-navy background with gold/blue accents, sticky nav, responsive grid
+layouts down to mobile.
+
+### Page sections
+
+| Section | Content |
+|---|---|
+| **Hero** | Headline, positioning statement (18+ yrs finance + Agentic AI), CTAs, credibility chips, live "Transformation System Online" status card with key metrics |
+| **Executive Builder Profile** | "Who I Am" and "What I Build" cards |
+| **AI Finance Missions** | 6 project cards, each framed as business problem → AI solution → finance-control opportunity, with tech stack chips and GitHub links |
+| **Impact Dashboard** | Business-first outcome metrics (review-reduction %, prototype count, years, CFO focus) |
+| **Capability Matrix** | Finance Leadership · Fund Administration · Agentic AI · Enterprise Controls |
+| **Contact** | GitHub, LinkedIn, and email CTAs in the footer |
+
+## Featured AI missions
+
+| # | Project | Repo |
+|---|---|---|
+| 01 | AI Finance OS | [AI_FINANCE_OS_PRODUCTION](https://github.com/VijoJohn/AI_FINANCE_OS_PRODUCTION) |
+| 02 | NAV Break Investigation Agent | [nav-break-investigation-agent](https://github.com/VijoJohn/nav-break-investigation-agent) |
+| 03 | SOI Review Agent | [mutual-fund-soi-review-agent](https://github.com/VijoJohn/mutual-fund-soi-review-agent) |
+| 04 | Timesheet Intelligence | [ai-timesheet-intelligence](https://github.com/VijoJohn/ai-timesheet-intelligence) |
+| 05 | Agentic RAG Cover Letter App | [agentic-rag-coverletter-app](https://github.com/VijoJohn/agentic-rag-coverletter-app) |
+| 06 | Enterprise Ethics | [enterprise-ethics](https://github.com/VijoJohn/enterprise-ethics) |
+
+`resume.pdf` is served directly from the **Download Resume** button in the hero.
+
+## Editing
+
+Everything is in `index.html`:
+
+- **Copy / metrics** — edit the relevant section markup directly.
+- **Missions** — duplicate or edit an `<article class="card mission">` block; update
+  the `<h3>`, description, `.stack` chips, and the GitHub `href`.
+- **Theme colors** — change the CSS custom properties in `:root { ... }` at the top
+  of the inline `<style>` block (`--accent`, `--blue`, `--bg`, etc.).
+- **Resume** — replace `resume.pdf` in this folder (keep the filename).
 
 ## Files
 
-| File | Purpose |
+| File | Status |
 |---|---|
-| `index.html` | Markup — player profile, lore, quest log, achievements, party invite |
-| `styles.css` | Neon RPG/CRT theme — scanlines, glitch text, animated bars |
-| `script.js` | Live GitHub fetch + typewriter + clock + Konami easter egg |
+| `index.html` | The entire site (self-contained) |
+| `resume.pdf` | Linked from the hero "Download Resume" button |
+| `README.md` | This file |
+| `.gitignore` | Excludes OS/editor junk, `*.log`, `.env*`, `node_modules/` |
+| `styles.css`, `script.js` | **Legacy / unused** — leftovers from an earlier gamified version, no longer referenced by `index.html`. Safe to delete. |
 
-## What's live from GitHub
+## Deploy (GitHub Pages)
 
-On page load, `script.js` calls the public GitHub API (no auth, cached in `sessionStorage` for 10 min):
-
-- **`/users/VijoJohn`** → avatar image, bio (overrides lore intro if set), public-repo count → `LVL`, follower count → `XP` bar.
-- **`/repos/VijoJohn/<slug>`** for each pinned quest → real description, primary language, star/fork counts, "updated Nd ago".
-
-If the API is rate-limited or offline, the static fallback content (already personalized) shows instead.
-
-## Featured quests
-
-1. [mutual-fund-soi-review-agent](https://github.com/VijoJohn/mutual-fund-soi-review-agent) — *Legendary*
-2. [nav-break-investigation-agent](https://github.com/VijoJohn/nav-break-investigation-agent) — *Epic*
-3. [ai-timesheet-intelligence](https://github.com/VijoJohn/ai-timesheet-intelligence) — *Epic*
-4. [agentic-rag-coverletter-app](https://github.com/VijoJohn/agentic-rag-coverletter-app) — *Rare*
-5. [enterprise-ethics](https://github.com/VijoJohn/enterprise-ethics) — *Rare*
-
-To swap or reorder: edit the `<a class="quest" data-repo="...">` blocks in `index.html`. The `data-repo` attribute is what the script uses to hit the API.
-
-## Deploy to GitHub Pages
+Already configured. To publish updates:
 
 ```bash
-git init
-git add .
-git commit -m "Launch portfolio"
-git branch -M main
-git remote add origin https://github.com/VijoJohn/VijoJohn.github.io.git
-git push -u origin main
+git add -A
+git commit -m "Update portfolio"
+git push origin main
 ```
 
-Then in the repo: **Settings → Pages → Source: `main` / `(root)`**.
+GitHub Pages serves the repo (`VijoJohn/VijoJohn.github.io`) at the root URL:
+**https://vijojohn.github.io**
 
-> Tip: naming the repo `VijoJohn.github.io` serves it at **https://vijojohn.github.io** (root URL, no path prefix).
-
-If you'd rather host it under an existing repo (e.g. `VijoJohn/portfolio`), it'll deploy to `https://vijojohn.github.io/portfolio/` instead — both work.
-
-## Easter egg
-
-Type the Konami code on the page: ↑ ↑ ↓ ↓ ← → ← → B A 🏆
+> First-time setup only: in the repo, **Settings → Pages → Source: `main` / `(root)`**.
