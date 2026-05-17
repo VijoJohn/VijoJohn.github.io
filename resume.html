@@ -4,67 +4,63 @@
 <meta charset="UTF-8" />
 <title>Vijo John — Resume</title>
 <style>
-  @page { size: A4; margin: 8mm 11mm; }
+  @page { size: A4; margin: 12mm 13mm; }
   * { margin:0; padding:0; box-sizing:border-box; }
   html { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
-  body { font-family:"Calibri","Segoe UI",Arial,sans-serif; color:#1c2733; font-size:9.1px; line-height:1.3; }
+  body { font-family:"Calibri","Segoe UI",Arial,sans-serif; color:#1c2733; font-size:10.6px; line-height:1.5; }
   a { color:#0a3d70; text-decoration:none; }
-  /* Header */
-  .head { background:#0a1f3c; color:#fff; padding:12px 18px; border-radius:6px; display:flex; align-items:center; gap:16px; }
-  .head .photo { width:60px; height:60px; border-radius:50%; object-fit:cover; object-position:center 18%; border:2px solid #ffd27a; flex:0 0 auto; }
+  /* Header — text left, photo right */
+  .head { background:#0a1f3c; color:#fff; padding:20px 24px; border-radius:7px; display:flex; align-items:center; justify-content:space-between; gap:22px; }
   .head .idblock { flex:1; }
-  .head .name { font-size:22px; font-weight:700; letter-spacing:.5px; line-height:1; }
-  .head .title { font-size:10px; color:#ffd27a; font-weight:600; margin-top:5px; letter-spacing:.2px; }
-  .head .contact { font-size:8.5px; color:#cfe0f3; text-align:right; line-height:1.6; flex:0 0 auto; }
+  .head .name { font-size:28px; font-weight:700; letter-spacing:.6px; line-height:1; }
+  .head .title { font-size:12px; color:#ffd27a; font-weight:600; margin-top:8px; letter-spacing:.2px; }
+  .head .contact { font-size:9.6px; color:#cfe0f3; margin-top:10px; line-height:1.7; }
   .head .contact a { color:#cfe0f3; }
+  .head .photo { width:90px; height:90px; border-radius:50%; object-fit:cover; object-position:center 18%; border:3px solid #ffd27a; flex:0 0 auto; }
   /* Sections */
-  .sec { margin-top:8px; }
-  .sec > h2 { font-size:9.7px; font-weight:700; color:#0a1f3c; text-transform:uppercase; letter-spacing:1px;
-              border-bottom:2px solid #d8b15a; padding-bottom:2px; margin-bottom:5px; }
+  .sec { margin-top:15px; break-inside:auto; }
+  .sec > h2 { font-size:12px; font-weight:700; color:#0a1f3c; text-transform:uppercase; letter-spacing:1.2px;
+              border-bottom:2px solid #d8b15a; padding-bottom:3px; margin-bottom:8px; break-after:avoid; }
   p.summary { text-align:justify; }
   /* Skill / competency lines (flex so DOM order == text-extraction order, ATS-safe) */
-  .skill { display:flex; gap:14px; margin:2.5px 0; }
-  .skill b { flex:0 0 132px; color:#0a1f3c; font-weight:700; }
+  .skill { display:flex; gap:16px; margin:5px 0; break-inside:avoid; }
+  .skill b { flex:0 0 150px; color:#0a1f3c; font-weight:700; }
   .skill span { flex:1; }
   /* Projects */
-  .proj { margin-bottom:4px; }
-  .proj .pt { font-weight:700; color:#16314f; }
-  .proj .pt .flag { background:#0a1f3c; color:#ffd27a; font-size:7px; font-weight:700; padding:1px 6px;
-                    border-radius:8px; margin-left:6px; vertical-align:1px; letter-spacing:.5px; }
-  .proj .tech { color:#6a7787; font-style:italic; font-size:8.4px; font-weight:400; }
-  .proj p { margin-top:1px; }
+  .proj { margin-bottom:9px; break-inside:avoid; }
+  .proj .pt { font-weight:700; color:#16314f; font-size:11px; }
+  .proj .pt .flag { background:#0a1f3c; color:#ffd27a; font-size:8px; font-weight:700; padding:1px 7px;
+                    border-radius:9px; margin-left:7px; vertical-align:1px; letter-spacing:.5px; }
+  .proj .tech { color:#6a7787; font-style:italic; font-size:9.4px; font-weight:400; }
+  .proj p { margin-top:2px; }
   /* Experience */
-  .job { margin-bottom:6px; }
+  .job { margin-bottom:11px; break-inside:avoid; }
   .job .row { display:flex; justify-content:space-between; align-items:baseline; }
-  .job .ro { font-weight:700; color:#16314f; font-size:9.8px; }
-  .job .rd { color:#6a7787; font-size:8.4px; font-weight:600; white-space:nowrap; padding-left:10px; }
-  .job .sub { color:#46566a; font-size:8.6px; font-style:italic; margin:1px 0; }
-  ul { margin:1px 0 0 14px; }
-  li { margin:1px 0; }
+  .job .ro { font-weight:700; color:#16314f; font-size:11.5px; }
+  .job .rd { color:#6a7787; font-size:9.5px; font-weight:600; white-space:nowrap; padding-left:12px; }
+  .job .sub { color:#46566a; font-size:9.6px; font-style:italic; margin:2px 0 3px; }
+  ul { margin:3px 0 0 17px; }
+  li { margin:3px 0; }
   /* Accomplishments grid */
-  .ach { column-count:2; column-gap:20px; }
-  .ach li { margin:1.5px 0; break-inside:avoid; }
+  .ach { column-count:2; column-gap:26px; }
+  .ach li { margin:4px 0; break-inside:avoid; }
   .ach li b { color:#16314f; }
   /* Two-up */
-  .twocol { display:flex; gap:22px; }
+  .twocol { display:flex; gap:26px; }
   .twocol > div { flex:1; }
-  .credline { margin-top:1px; }
+  .credline { margin-top:3px; break-inside:avoid; }
   .credline b { color:#16314f; }
 </style>
 </head>
 <body>
 
   <div class="head">
-    <img class="photo" src="profile.jpg" alt="Vijo John" />
     <div class="idblock">
       <div class="name">VIJO JOHN</div>
       <div class="title">VP, Head of Finance &mdash; Order-to-Cash, Receivables, Controls &amp; AI-Driven Transformation</div>
+      <div class="contact">vjohn1111@gmail.com &nbsp;·&nbsp; +91-9891240426 &nbsp;&nbsp;|&nbsp;&nbsp; linkedin.com/in/vijojohn &nbsp;·&nbsp; github.com/VijoJohn &nbsp;&nbsp;|&nbsp;&nbsp; India &nbsp;·&nbsp; Open to Finance leadership roles</div>
     </div>
-    <div class="contact">
-      vjohn1111@gmail.com &nbsp;·&nbsp; +91-9891240426<br/>
-      linkedin.com/in/vijojohn &nbsp;·&nbsp; github.com/VijoJohn<br/>
-      India &nbsp;·&nbsp; Open to Finance leadership roles
-    </div>
+    <img class="photo" src="profile.jpg" alt="Vijo John" />
   </div>
 
   <div class="sec">
@@ -74,55 +70,67 @@
     financial reporting, and statutory compliance (GST, TDS, US GAAP &amp; Ind AS)</b> across India and the US. Builds and
     automates invoicing, collections, and reconciliation systems with strong internal controls, accurate documentation,
     and audit readiness — and brings a rare edge: production-grade <b>Agentic AI</b> (LangGraph, RAG, LLMOps) applied to
-    finance operations and controls. Ex-State Street, IIM Kozhikode MBA, Six Sigma Black Belt, former CISO with six
+    finance operations and controls. Ex-State Street, IIM Kozhikode MBA, Six Sigma Black Belt, and former CISO with six
     consecutive years of zero material ITGC/SOC1 findings.</p>
   </div>
 
   <div class="sec">
     <h2>Order-to-Cash, Receivables &amp; Compliance</h2>
-    <div class="skill"><b>Invoicing &amp; Billing</b><span>End-to-end invoicing &amp; billing ownership · accurate, timely invoice issuance · billing-discrepancy resolution with clients &amp; internal teams</span></div>
-    <div class="skill"><b>Accounts Receivable</b><span>AR operations · payment tracking · collections &amp; follow-ups · reducing outstanding dues / DSO · receivables cash-flow monitoring &amp; leadership reporting</span></div>
-    <div class="skill"><b>Reconciliation &amp; Records</b><span>Account reconciliations · accurate financial records &amp; documentation · financial reporting · month-end close · audit support</span></div>
-    <div class="skill"><b>Statutory Compliance</b><span>GST · TDS · statutory &amp; regulatory compliance (India &amp; US) · audit-ready documentation · internal controls &amp; governance</span></div>
+    <div class="skill"><b>Invoicing &amp; Billing</b><span>End-to-end invoicing &amp; billing ownership · accurate and timely invoice issuance · billing-discrepancy resolution in coordination with clients and internal teams</span></div>
+    <div class="skill"><b>Accounts Receivable</b><span>AR operations · payment tracking · collections &amp; follow-ups · reducing outstanding dues / DSO · receivables cash-flow monitoring and regular leadership reporting</span></div>
+    <div class="skill"><b>Reconciliation &amp; Records</b><span>Account reconciliations · accurate financial records &amp; documentation · financial reporting · month-end close · audit support and compliance documentation</span></div>
+    <div class="skill"><b>Statutory Compliance</b><span>GST · TDS · statutory &amp; regulatory compliance across India and the US · audit-ready documentation · internal controls and governance</span></div>
     <div class="skill"><b>Systems &amp; Tools</b><span>Building &amp; improving invoicing, collections &amp; reconciliation systems · process automation · advanced MS Excel &amp; Power Query · ERP / accounting platforms</span></div>
   </div>
 
   <div class="sec">
     <h2>AI &amp; Agentic Engineering</h2>
-    <div class="skill"><b>Agentic Orchestration</b><span>LangGraph multi-agent pipelines · supervisor / worker routing · reflection &amp; revision loops · tool-using agents · stateful workflows</span></div>
+    <div class="skill"><b>Agentic Orchestration</b><span>LangGraph multi-agent pipelines · supervisor / worker routing · reflection &amp; revision loops · tool-using agents · stateful workflows · agentic memory</span></div>
     <div class="skill"><b>RAG &amp; Retrieval</b><span>Qdrant vector DB · Sentence Transformers · multimodal RAG (CLIP) · PDF / document RAG · domain knowledge bases · semantic retrieval</span></div>
     <div class="skill"><b>LLM &amp; LLMOps</b><span>Azure OpenAI (enterprise) · Groq · Llama 3 · local / private LLMs · prompt routing · monitoring &amp; logging · evaluation harnesses</span></div>
-    <div class="skill"><b>Delivery</b><span>Python · FastAPI · Streamlit · PostgreSQL · Pandas · human-in-the-loop · AI risk controls · auditability · data privacy by design</span></div>
+    <div class="skill"><b>AI App Engineering</b><span>Python · FastAPI · Streamlit · PostgreSQL · Pandas · API &amp; service design · prototype-to-deployable delivery</span></div>
+    <div class="skill"><b>Responsible AI</b><span>Human-in-the-loop · AI risk controls · auditability · policy enforcement · data privacy by design · enterprise AI governance</span></div>
   </div>
 
   <div class="sec">
     <h2>AI Finance Systems — Designed &amp; Built</h2>
+
     <div class="proj">
       <div class="pt">AI Finance OS <span class="flag">FLAGSHIP</span> &nbsp;<span class="tech">Python · FastAPI · LangGraph · PostgreSQL · Streamlit</span></div>
-      <p>Autonomous finance operating layer — LangGraph-orchestrated agents for bookkeeping, MIS, <b>invoice, intercompany, and reconciliation workflows</b>, and CFO decision dashboards.</p>
+      <p>Production-oriented autonomous finance operating layer — LangGraph-orchestrated agents for bookkeeping, MIS
+      generation, <b>invoice, intercompany, and reconciliation workflows</b>, and CFO decision dashboards, built on a
+      FastAPI service with PostgreSQL state and a Streamlit control surface.</p>
     </div>
+
+    <div class="proj">
+      <div class="pt">NAV Break Investigation Agent &nbsp;<span class="tech">LangGraph · Azure OpenAI · Qdrant RAG · LLMOps</span></div>
+      <p>Break Detection, Investigation, and Reflection agents with a Qdrant-backed RAG layer over NAV validation rules
+      and investigation playbooks, plus an LLMOps governance layer for routing, logging, and evaluation.</p>
+    </div>
+
+    <div class="proj">
+      <div class="pt">SOI Review Agent &nbsp;<span class="tech">8-agent pipeline · PDF extraction · ASC 946 RAG · preventive controls</span></div>
+      <p>Eight-agent pipeline automating Schedule of Investments review under US GAAP ASC 946 — PDF extraction, SOI
+      detection, structured-data building, specialized validation, prior-cycle comparison, and a preventive-control
+      agent grounded by a RAG knowledge base.</p>
+    </div>
+
+    <div class="proj">
+      <div class="pt">Timesheet Intelligence &nbsp;<span class="tech">Multi-agent · Groq · Llama 3 · risk scoring · tool use</span></div>
+      <p>Sequential Data → Policy → Risk → LLM Insight → Reflection agent pipeline that surfaces only high-risk billing
+      and utilization exceptions, with a project-effort calculator tool for risk-weighted prioritization.</p>
+    </div>
+
     <div class="twocol">
       <div class="proj">
-        <div class="pt">NAV Break Investigation Agent</div>
-        <div class="tech">LangGraph · Azure OpenAI · Qdrant RAG · LLMOps</div>
-        <p>Break/Investigation/Reflection agents with RAG over NAV rules and an LLMOps governance layer.</p>
+        <div class="pt">Enterprise Ethics &nbsp;<span class="tech">Multimodal RAG · CLIP · local</span></div>
+        <p>Fully local, multimodal RAG system for corporate ethics guidance; CLIP retrieves policy diagrams and text
+        simultaneously — governed AI advisory with no external data exposure.</p>
       </div>
       <div class="proj">
-        <div class="pt">SOI Review Agent</div>
-        <div class="tech">8-agent pipeline · PDF extraction · ASC 946 RAG</div>
-        <p>Eight-agent pipeline automating US GAAP ASC 946 Schedule of Investments review with preventive controls.</p>
-      </div>
-    </div>
-    <div class="twocol">
-      <div class="proj">
-        <div class="pt">Timesheet Intelligence</div>
-        <div class="tech">Multi-agent · Groq · Llama 3 · risk scoring</div>
-        <p>Data→Policy→Risk→Insight→Reflection pipeline surfacing only high-risk billing &amp; utilization exceptions.</p>
-      </div>
-      <div class="proj">
-        <div class="pt">Enterprise Ethics &amp; Cover Letter Agent</div>
-        <div class="tech">Multimodal RAG · CLIP · Streamlit</div>
-        <p>Local multimodal RAG ethics advisor + a Writer–Reflection–Revision agentic RAG generator.</p>
+        <div class="pt">Agentic RAG Cover Letter App &nbsp;<span class="tech">Agentic RAG · Streamlit</span></div>
+        <p>Writer–Reflection–Revision agent loop over RAG-grounded context with configurable generation controls,
+        delivered as a Streamlit application.</p>
       </div>
     </div>
   </div>
@@ -132,12 +140,12 @@
     <ul class="ach">
       <li><b>+40% productivity</b> via workload assessment and operational process restructuring.</li>
       <li><b>−80% reporting prep time</b> through a streamlined performance reporting template.</li>
-      <li><b>−40% compliance breaches</b> &amp; +25% data-security improvement via governance policies.</li>
+      <li><b>−40% compliance breaches</b> &amp; +25% data-security improvement via application governance policies.</li>
       <li><b>60+ clients migrated</b> to a new platform with 50% fewer support tickets.</li>
-      <li><b>~USD 200K annualized savings</b> via vendor optimization, SaaS consolidation, and automation.</li>
-      <li><b>CISO &amp; ISO 27001 certified</b>; established SOC readiness via control-framework design.</li>
+      <li><b>~USD 200K annualized savings</b> via vendor optimization, SaaS consolidation, and process automation.</li>
+      <li><b>CISO &amp; ISO 27001 certified</b>; established SOC readiness through control-framework design.</li>
       <li><b>Book closure BD10 → BD8</b> and MIS reporting accelerated by 2 days.</li>
-      <li><b>Built AI Finance OS</b> automating invoice, intercompany &amp; reconciliation workflows.</li>
+      <li><b>Built AI Finance OS</b> automating invoice, intercompany &amp; reconciliation workflows for the CFO office.</li>
     </ul>
   </div>
 
@@ -148,8 +156,8 @@
       <div class="row"><span class="ro">McLaren Strategic Solutions — Vice President, Head of Finance</span><span class="rd">Jun 2025 – Present</span></div>
       <ul>
         <li>Own the finance function end-to-end — order-to-cash, invoicing &amp; billing, accounts receivable, account reconciliations, financial reporting, and statutory compliance (GST, TDS, US GAAP / Ind AS) across India and the US.</li>
-        <li>Run monthly, quarterly, and annual close; develop financial strategy, forecasts, and internal controls; monitor cash flow and report to leadership.</li>
-        <li>Drive AI-enabled finance transformation — agentic automation of invoicing, collections, reconciliation, reporting, and controls.</li>
+        <li>Run monthly, quarterly, and annual close; develop financial strategy, forecasts, and internal controls; monitor cash flow related to receivables and provide regular updates to leadership.</li>
+        <li>Drive AI-enabled finance transformation — agentic automation of invoicing, collections, reconciliation, reporting, and controls; partner with senior leadership on strategic decisions.</li>
       </ul>
     </div>
 
@@ -157,16 +165,17 @@
       <div class="row"><span class="ro">State Street, Bangalore — Sr. AVP / AVP / Sr. Manager, Financial Reporting</span><span class="rd">Jul 2018 – Jun 2025</span></div>
       <div class="sub">Progressive growth: Sr. Manager (2018) → AVP (2020) → Senior AVP (2023)</div>
       <ul>
-        <li>Built and led client-facing teams delivering US GAAP–compliant statements and reconciliations on schedule, improving client satisfaction and retention.</li>
+        <li>Built and led client-facing production teams delivering US GAAP–compliant financial statements and reconciliations on schedule, improving client satisfaction and retention.</li>
         <li>Oversaw ITGC and SOC1 audits with a record of zero material findings; accountable for reporting systems and data-feed integrity.</li>
-        <li>Managed post-M&amp;A integration (Syntel, HCL JVs); led P&amp;L optimization and process re-engineering.</li>
+        <li>Managed post-M&amp;A cross-functional integration (e.g., Syntel, HCL JVs); led P&amp;L optimization and process re-engineering.</li>
       </ul>
     </div>
 
     <div class="job">
       <div class="row"><span class="ro">HSBC EDPI, Gurgaon — Manager, Business Finance</span><span class="rd">Dec 2016 – Jul 2018</span></div>
       <ul>
-        <li>Finance business partner — budgeting, forecasting, CFO-level models; engineered Excel / Power Query reporting tools improving accuracy and timeliness.</li>
+        <li>Finance business partner for global operations — strategic insights, budgeting, forecasting, and CFO-level financial models.</li>
+        <li>Engineered advanced data consolidation and reporting tools (Excel, Power Query), improving accuracy and timeliness across functions.</li>
       </ul>
     </div>
 
