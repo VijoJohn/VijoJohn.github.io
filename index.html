@@ -29,7 +29,7 @@
           <p class="eyebrow">Finance Leadership x Agentic AI x Enterprise Controls</p>
           <h1>Building AI Systems for Fund Administration &amp; the Modern CFO Office</h1>
           <p class="lead">Finance transformation leader with 19+ years across financial reporting (US GAAP &amp; Ind AS), fund accounting &amp; administration, FP&A, governance, and global finance operations — now designing and shipping production-grade Agentic AI systems for FP&A narrative reporting, CFO office automation, fund administration, and enterprise controls.</p>
-          <div class="actions"><a class="btn primary" href="#missions">Explore AI Missions</a><a class="btn secondary" href="resume.pdf" target="_blank">Download Resume</a><a class="btn textbtn" href="https://github.com/VijoJohn" target="_blank" rel="noopener">GitHub</a></div>
+          <div class="actions"><a class="btn primary" href="#missions">Explore AI Missions</a><a class="btn secondary resume-link" href="resume-genai.pdf" target="_blank" data-resume-url="resume-genai.pdf" data-resume-name="Vijo John - Gen AI Agentic AI Finance Resume.pdf" data-resume-type="Gen AI + Agentic AI + Finance/BFSI">AI Resume</a><a class="btn secondary resume-link" href="resume-cfo.pdf" target="_blank" data-resume-url="resume-cfo.pdf" data-resume-name="Vijo John - CFO Head of Finance AI Strategy Resume.pdf" data-resume-type="CFO Track + Head of Finance + AI Strategy">CFO Resume</a><a class="btn textbtn" href="https://github.com/VijoJohn" target="_blank" rel="noopener">GitHub</a></div>
           <div class="cred"><span>VP, Head of Finance</span><span>IIM Kozhikode MBA</span><span>Ex-State Street</span><span>Financial Reporting</span><span>Fund Accounting</span><span>Agentic AI Engineer</span><span>LangGraph · RAG · LLMOps</span></div>
         </div>
         <aside class="hero-card">
@@ -125,7 +125,7 @@
     <div class="rg-modal" role="dialog" aria-modal="true" aria-labelledby="rgTitle">
       <button class="rg-close" id="rgClose" type="button" aria-label="Close">&times;</button>
       <h3 id="rgTitle">Download Resume</h3>
-      <p class="rg-sub">Share your details and the resume download will start. I'll know you stopped by.</p>
+      <p class="rg-sub" id="rgSub">Share your details and the resume download will start. I'll know you stopped by.</p>
       <form id="rgForm" novalidate>
         <label class="rg-field"><span>Name</span><input type="text" name="name" autocomplete="name" required /></label>
         <label class="rg-field"><span>Work email</span><input type="email" name="email" autocomplete="email" required /></label>
@@ -146,18 +146,31 @@
               3) Replace FORMSPREE_ENDPOINT below with it
        Until configured, the download still works but you won't be notified. */
     var FORMSPREE_ENDPOINT = "https://formspree.io/f/mojrgpod";
-    var RESUME_URL = "resume.pdf";
+    var RESUME_URL = "resume-genai.pdf";
+    var RESUME_NAME = "Vijo John - Gen AI Agentic AI Finance Resume.pdf";
+    var RESUME_TYPE = "Gen AI + Agentic AI + Finance/BFSI";
 
     var overlay=document.getElementById('rgOverlay');
     var form=document.getElementById('rgForm');
     var statusEl=document.getElementById('rgStatus');
     var submitBtn=document.getElementById('rgSubmit');
+    var subEl=document.getElementById('rgSub');
 
-    function openModal(e){ if(e)e.preventDefault(); overlay.hidden=false; document.body.style.overflow='hidden'; setTimeout(function(){var i=form.querySelector('input');if(i)i.focus();},60); }
+    function openModal(e){
+      if(e)e.preventDefault();
+      var link=e && e.currentTarget;
+      if(link){
+        RESUME_URL=link.getAttribute('data-resume-url') || link.getAttribute('href') || RESUME_URL;
+        RESUME_NAME=link.getAttribute('data-resume-name') || RESUME_NAME;
+        RESUME_TYPE=link.getAttribute('data-resume-type') || RESUME_TYPE;
+      }
+      subEl.textContent='Share your details and the '+RESUME_TYPE+' resume download will start.';
+      overlay.hidden=false; document.body.style.overflow='hidden'; setTimeout(function(){var i=form.querySelector('input');if(i)i.focus();},60);
+    }
     function closeModal(){ overlay.hidden=true; document.body.style.overflow=''; statusEl.textContent=''; statusEl.className='rg-status'; }
-    function triggerDownload(){ var a=document.createElement('a'); a.href=RESUME_URL; a.download='Vijo John - Resume.pdf'; document.body.appendChild(a); a.click(); a.remove(); }
+    function triggerDownload(){ var a=document.createElement('a'); a.href=RESUME_URL; a.download=RESUME_NAME; document.body.appendChild(a); a.click(); a.remove(); }
 
-    Array.prototype.forEach.call(document.querySelectorAll('a[href="resume.pdf"]'), function(link){ link.addEventListener('click', openModal); });
+    Array.prototype.forEach.call(document.querySelectorAll('.resume-link, a[href="resume.pdf"]'), function(link){ link.addEventListener('click', openModal); });
     document.getElementById('rgClose').addEventListener('click', closeModal);
     overlay.addEventListener('click', function(e){ if(e.target===overlay) closeModal(); });
     document.addEventListener('keydown', function(e){ if(e.key==='Escape' && !overlay.hidden) closeModal(); });
@@ -181,7 +194,7 @@
 
       var ctrl=new AbortController(); var to=setTimeout(function(){ ctrl.abort(); },12000);
       fetch(FORMSPREE_ENDPOINT,{ method:'POST', signal:ctrl.signal, headers:{'Accept':'application/json','Content-Type':'application/json'},
-        body:JSON.stringify({name:name,email:email,company:company,_subject:'Portfolio: resume downloaded by '+name}) })
+        body:JSON.stringify({name:name,email:email,company:company,resume_type:RESUME_TYPE,resume_url:RESUME_URL,_subject:'Portfolio: '+RESUME_TYPE+' resume downloaded by '+name}) })
         .then(function(res){ clearTimeout(to);
           if(res.ok){ finish(true); return; }
           return res.json().catch(function(){ return {}; }).then(function(data){
