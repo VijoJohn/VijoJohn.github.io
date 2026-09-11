@@ -44,7 +44,6 @@ the copyright year. It has no build step or application dependencies.
 
 - `resume-genai.pdf` - primary Product Owner and AI Product Management resume.
 - `resume.pdf` - compatibility copy of the primary resume.
-- `resume-cfo.pdf` - finance leadership resume.
 
 Resume downloads are direct links without a form or email gate.
 
