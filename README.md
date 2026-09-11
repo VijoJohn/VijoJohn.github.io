@@ -1,107 +1,63 @@
-# Vijo John — Executive AI Transformation Portfolio
+# Vijo John - Product Owner and AI Product Portfolio
 
-A professional, single-page portfolio for **Vijo John** — finance transformation
-leader building practical Agentic AI systems for the modern CFO office, finance
-operations, fund administration, and enterprise controls.
+A responsive, single-page portfolio for Vijo John, positioning finance,
+operations, controls, and Agentic AI experience for Product Owner and Product
+Management roles in BFSI.
 
 **Live site:** https://vijojohn.github.io
 
 ## Overview
 
-The site is a **single self-contained `index.html`** — all CSS lives in an inline
-`<style>` block and the only script sets the copyright year. No build step, no
-dependencies, no external CSS/JS to load (Inter is the only web font). Just open
-the file and it works.
-
-Theme: deep-navy background with gold/blue accents, sticky nav, responsive grid
-layouts down to mobile.
+The site is a self-contained `index.html` with inline CSS and a small script for
+the copyright year. It has no build step or application dependencies.
 
 ### Page sections
 
 | Section | Content |
 |---|---|
-| **Hero** | Headline, positioning statement (18+ yrs finance + Agentic AI), CTAs, credibility chips, live "Transformation System Online" status card with key metrics |
-| **Executive Builder Profile** | "Who I Am" and "What I Build" cards |
-| **AI Finance Missions** | 6 project cards, each framed as business problem → AI solution → finance-control opportunity, with tech stack chips and GitHub links |
-| **Impact Dashboard** | Business-first outcome metrics (review-reduction %, prototype count, years, CFO focus) |
-| **Capability Matrix** | Finance Leadership · Fund Administration · Agentic AI · Enterprise Controls |
-| **Contact** | GitHub, LinkedIn, and email CTAs in the footer |
+| Hero | Product Owner positioning, direct resume downloads, and contact links |
+| Verified Outcomes | Selected scale, productivity, cycle-time, and control metrics |
+| Executive Profile | Product leadership narrative connecting finance, operations, risk, and technology |
+| Product Leadership | Product ownership, Agile delivery, Agentic AI, LLMOps, finance platforms, and governance capabilities |
+| AI Product Portfolio | Case studies framed by problem, users, product role, controls, and outcome |
+| Enterprise Product Experience | McLaren, State Street, HSBC, and Ameriprise experience |
+| Credentials | PMP, SAFe POPM, AI certifications, CIMA SCS Candidate, Six Sigma, and ISO qualifications |
+| Contact | LinkedIn, GitHub, email, and direct resume download |
 
-## Featured AI missions
+## Featured product case studies
 
-| # | Project | Repo |
-|---|---|---|
-| 01 | AI Finance OS | [AI_FINANCE_OS_PRODUCTION](https://github.com/VijoJohn/AI_FINANCE_OS_PRODUCTION) |
-| 02 | NAV Break Investigation Agent | [nav-break-investigation-agent](https://github.com/VijoJohn/nav-break-investigation-agent) |
-| 03 | SOI Review Agent | [mutual-fund-soi-review-agent](https://github.com/VijoJohn/mutual-fund-soi-review-agent) |
-| 04 | Timesheet Intelligence | [ai-timesheet-intelligence](https://github.com/VijoJohn/ai-timesheet-intelligence) |
-| 05 | Agentic RAG Cover Letter App | [agentic-rag-coverletter-app](https://github.com/VijoJohn/agentic-rag-coverletter-app) |
-| 06 | Enterprise Ethics | [enterprise-ethics](https://github.com/VijoJohn/enterprise-ethics) |
+| Project | Repository |
+|---|---|
+| FP&A Narrative Reporting Copilot | Private project |
+| AI Finance OS | [AI_FINANCE_OS_PRODUCTION](https://github.com/VijoJohn/AI_FINANCE_OS_PRODUCTION) |
+| NAV Break Investigation Agent | [nav-break-investigation-agent](https://github.com/VijoJohn/nav-break-investigation-agent) |
+| NAV Break Voice Co-pilot | [nav-break-voice-copilot](https://github.com/VijoJohn/nav-break-voice-copilot) |
+| Mutual Fund SOI Review Agent | [mutual-fund-soi-review-agent](https://github.com/VijoJohn/mutual-fund-soi-review-agent) |
+| Enterprise Ethics Consultant | [enterprise-ethics](https://github.com/VijoJohn/enterprise-ethics) |
+| AgentOps Guardrails | [agentops-guardrails-safety](https://github.com/VijoJohn/agentops-guardrails-safety) |
+| Timesheet Intelligence | [ai-timesheet-intelligence](https://github.com/VijoJohn/ai-timesheet-intelligence) |
+| Agentic RAG Cover Letter | [agentic-rag-coverletter-app](https://github.com/VijoJohn/agentic-rag-coverletter-app) |
 
-`resume.pdf` is served directly from the **Download Resume** button in the hero.
+## Resume files
+
+- `resume-genai.pdf` - primary Product Owner and AI Product Management resume.
+- `resume.pdf` - compatibility copy of the primary resume.
+- `resume-cfo.pdf` - finance leadership resume.
+
+Resume downloads are direct links without a form or email gate.
 
 ## Editing
 
-Everything is in `index.html`:
+- Update portfolio content and styling in `index.html`.
+- Replace a resume PDF while retaining its filename to preserve links.
+- Edit the CSS custom properties in `:root` to change the color system.
 
-- **Copy / metrics** — edit the relevant section markup directly.
-- **Missions** — duplicate or edit an `<article class="card mission">` block; update
-  the `<h3>`, description, `.stack` chips, and the GitHub `href`.
-- **Theme colors** — change the CSS custom properties in `:root { ... }` at the top
-  of the inline `<style>` block (`--accent`, `--blue`, `--bg`, etc.).
-- **Resume** — replace `resume.pdf` in this folder (keep the filename).
+## Deployment
 
-## Resume download gate (Formspree)
-
-The **Download Resume** button opens a modal asking for the visitor's name +
-email before the download starts, and notifies you by email on every download.
-
-**One-time setup (required for notifications):**
-
-1. Sign up free at <https://formspree.io> (free tier = 50 submissions/month).
-2. Create a new form; copy its endpoint — it looks like
-   `https://formspree.io/f/abcdwxyz`.
-3. In `index.html`, find this line in the inline `<script>` and paste your
-   endpoint in place of the placeholder:
-
-   ```js
-   var FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID"; // <-- REPLACE THIS
-   ```
-
-4. Commit + push. On the **first** real submission, Formspree emails you a
-   one-time confirmation link — click it to activate notifications.
-
-**Behaviour:**
-
-- Until the endpoint is configured, the modal still appears and the download
-  still works — you just won't get notified (a console warning is logged).
-- This is a **soft gate**: it captures leads and notifies you, but because the
-  site is static and public, the raw `resume.pdf` URL is still directly
-  reachable by anyone who guesses it. True hard-blocking would require a
-  serverless backend (out of scope for GitHub Pages).
-- If JavaScript is disabled, the link falls back to opening `resume.pdf`
-  directly (graceful degradation).
-
-## Files
-
-| File | Status |
-|---|---|
-| `index.html` | The entire site (self-contained) |
-| `resume.pdf` | Linked from the hero "Download Resume" button |
-| `README.md` | This file |
-| `.gitignore` | Excludes OS/editor junk, `*.log`, `.env*`, `node_modules/` |
-
-## Deploy (GitHub Pages)
-
-Already configured. To publish updates:
+GitHub Pages publishes the `main` branch at the repository root.
 
 ```bash
 git add -A
 git commit -m "Update portfolio"
 git push origin main
 ```
-
-GitHub Pages serves the repo (`VijoJohn/VijoJohn.github.io`) at the root URL:
-**https://vijojohn.github.io**
-
-> First-time setup only: in the repo, **Settings → Pages → Source: `main` / `(root)`**.
