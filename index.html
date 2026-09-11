@@ -28,6 +28,10 @@
       --white: #ffffff;
       --line: #d8e0e8;
       --soft-blue: #eaf2fa;
+      --tile-blue: #e8f1fa;
+      --tile-mint: #e5f3ef;
+      --tile-gold: #fff1cf;
+      --tile-violet: #f0edf8;
       --shadow: 0 12px 30px rgba(23, 54, 93, 0.09);
     }
 
@@ -66,11 +70,16 @@
     .btn-link { color: #f4c86f; padding-left: 8px; padding-right: 8px; }
     .btn:hover, .btn:focus-visible { transform: translateY(-1px); }
     .credential-line { margin-top: 18px; color: #cbd9e7; font-size: 13px; }
+    .design-signature { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; padding: 6px 9px; border: 1px solid #6f8bab; border-radius: 4px; color: #d9e6f2; font-size: 11px; font-weight: 600; }
+    .design-signature strong { color: #f4c86f; }
 
     .proof-band { background: var(--white); border-bottom: 1px solid var(--line); }
     .proof-grid { display: grid; grid-template-columns: repeat(5, 1fr); }
     .proof { padding: 20px 18px; border-left: 1px solid var(--line); }
     .proof:first-child { border-left: 0; }
+    .proof:nth-child(1), .proof:nth-child(5) { background: var(--tile-blue); }
+    .proof:nth-child(2), .proof:nth-child(4) { background: var(--tile-mint); }
+    .proof:nth-child(3) { background: var(--tile-gold); }
     .proof strong { display: block; color: var(--navy); font-size: 25px; line-height: 1.1; }
     .proof span { display: block; margin-top: 5px; color: var(--muted); font-size: 12px; line-height: 1.45; }
 
@@ -89,18 +98,21 @@
     .value-item span { color: var(--muted); font-size: 13px; }
 
     .capability-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px 28px; }
-    .capability { border-top: 3px solid var(--blue); padding-top: 13px; }
-    .capability:nth-child(2n) { border-top-color: var(--teal); }
-    .capability:nth-child(3n) { border-top-color: var(--gold); }
+    .capability { min-height: 170px; border: 1px solid #c9d9e8; border-top: 4px solid var(--blue); border-radius: 8px; padding: 18px; background: var(--tile-blue); }
+    .capability:nth-child(2n) { border-color: #bddbd2; border-top-color: var(--teal); background: var(--tile-mint); }
+    .capability:nth-child(3n) { border-color: #ead49e; border-top-color: var(--gold); background: var(--tile-gold); }
     .capability h3 { color: var(--navy); font-size: 17px; }
     .capability p { margin-top: 7px; color: var(--muted); font-size: 13px; }
 
     .case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    .case { border: 1px solid var(--line); border-radius: 8px; padding: 23px; background: var(--white); box-shadow: var(--shadow); }
+    .case { border: 1px solid #c9d9e8; border-radius: 8px; padding: 23px; background: var(--tile-blue); box-shadow: var(--shadow); }
     .case:last-child:nth-child(odd) { grid-column: 1 / -1; }
     .case-featured { border-top: 4px solid var(--gold); }
-    .case:nth-child(3n) { border-top: 4px solid var(--teal); }
+    .case:nth-child(2n) { border-color: #bddbd2; background: var(--tile-mint); }
+    .case:nth-child(3n) { border-color: #ead49e; border-top: 4px solid var(--teal); background: var(--tile-gold); }
+    .case:nth-child(4n) { border-color: #d6cfea; background: var(--tile-violet); }
     .case:nth-child(3n + 2) { border-top: 4px solid var(--blue); }
+    .case.case-featured { border-top-color: var(--gold); background: var(--tile-gold); }
     .case-label { color: var(--teal); font-size: 11px; font-weight: 800; text-transform: uppercase; }
     .case h3 { margin-top: 5px; color: var(--navy); font-size: 21px; line-height: 1.3; }
     .case-summary { margin-top: 9px; color: var(--muted); font-size: 14px; }
@@ -109,15 +121,17 @@
     .case-facts dt { color: var(--navy); font-size: 12px; font-weight: 800; }
     .case-facts dd { color: var(--muted); font-size: 12px; }
     .tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 16px; list-style: none; }
-    .tags li { padding: 4px 7px; border-radius: 3px; background: var(--soft-blue); color: #214e78; font-size: 11px; font-weight: 700; }
+    .tags li { padding: 4px 7px; border: 1px solid rgba(33, 78, 120, 0.15); border-radius: 3px; background: rgba(255, 255, 255, 0.74); color: #214e78; font-size: 11px; font-weight: 700; }
     .case-action { display: inline-block; margin-top: 17px; color: var(--blue); font-size: 13px; font-weight: 800; }
     .case-note { margin-top: 17px; color: var(--muted); font-size: 12px; font-weight: 600; }
     .additional-projects { margin-top: 25px; padding: 18px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
     .additional-projects strong { color: var(--navy); }
     .additional-projects a { color: var(--blue); font-weight: 700; margin-left: 16px; }
 
-    .experience-list { border-top: 1px solid var(--line); }
-    .experience-item { display: grid; grid-template-columns: 250px 1fr; gap: 32px; padding: 25px 0; border-bottom: 1px solid var(--line); }
+    .experience-list { display: grid; gap: 14px; }
+    .experience-item { display: grid; grid-template-columns: 250px 1fr; gap: 32px; padding: 22px; border: 1px solid #c9d9e8; border-left: 4px solid var(--blue); border-radius: 8px; background: var(--tile-blue); }
+    .experience-item:nth-child(2n) { border-color: #bddbd2; border-left-color: var(--teal); background: var(--tile-mint); }
+    .experience-item:nth-child(3n) { border-color: #ead49e; border-left-color: var(--gold); background: var(--tile-gold); }
     .experience-meta h3 { color: var(--navy); font-size: 17px; }
     .experience-meta p { margin-top: 4px; color: var(--muted); font-size: 12px; }
     .experience-body ul { padding-left: 18px; }
@@ -126,7 +140,8 @@
     .trust-line { margin-top: 24px; padding: 17px 20px; border-left: 4px solid var(--teal); background: #edf7f5; color: #285b56; font-size: 14px; }
 
     .credentials-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 30px; }
-    .credential-block { border-top: 3px solid var(--navy); padding-top: 16px; }
+    .credential-block { border: 1px solid #c9d9e8; border-top: 4px solid var(--blue); border-radius: 8px; padding: 18px; background: var(--tile-blue); }
+    .credential-block:nth-child(2) { border-color: #bddbd2; border-top-color: var(--teal); background: var(--tile-mint); }
     .credential-block h3 { color: var(--navy); font-size: 18px; }
     .credential-block p { margin-top: 8px; color: var(--muted); font-size: 13px; }
     .credential-list { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 18px; margin-top: 12px; list-style: none; }
@@ -138,6 +153,9 @@
     .footer h2 { color: var(--white); }
     .footer p { margin-top: 10px; color: #cbd9e7; }
     .footer .actions { justify-content: flex-end; margin-top: 0; }
+    .design-credit { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-top: 30px; padding: 15px 18px; border-radius: 6px; background: var(--gold); color: var(--navy-deep); }
+    .design-credit span { font-size: 11px; font-weight: 800; text-transform: uppercase; }
+    .design-credit strong { font-size: 15px; }
     .copyright { margin-top: 28px; padding-top: 18px; border-top: 1px solid #315071; color: #9fb3c8; font-size: 12px; }
 
     @media (max-width: 900px) {
@@ -171,6 +189,8 @@
       h2 { font-size: 27px; }
       .case-facts div { grid-template-columns: 1fr; gap: 3px; }
       .additional-projects a { display: block; margin: 8px 0 0; }
+      .design-signature { display: flex; width: fit-content; flex-wrap: wrap; }
+      .design-credit { align-items: flex-start; flex-direction: column; gap: 2px; }
     }
   </style>
 </head>
@@ -213,6 +233,7 @@
           <a class="btn btn-link" href="https://github.com/VijoJohn" target="_blank" rel="noopener">GitHub</a>
         </div>
         <p class="credential-line">PMP | SAFe POPM | Agentic AI and Generative AI Development | CIMA SCS Candidate</p>
+        <p class="design-signature"><span>Portfolio design and development</span><strong>Vijo John + OpenAI Codex</strong></p>
       </div>
     </header>
 
@@ -441,6 +462,7 @@
           <div><p class="section-kicker">Contact</p><h2>Discuss Product Owner and finance AI opportunities</h2><p>Open to Product Owner, Product Management and finance-platform leadership roles across BFSI and regulated enterprises.</p></div>
           <div class="actions"><a class="btn btn-primary" href="mailto:vjohn1111@gmail.com">Email Vijo</a><a class="btn btn-secondary" href="https://www.linkedin.com/in/vijojohn" target="_blank" rel="noopener">LinkedIn</a><a class="btn btn-secondary" href="https://github.com/VijoJohn" target="_blank" rel="noopener">GitHub</a></div>
         </div>
+        <div class="design-credit"><span>Design collaboration</span><strong>Portfolio experience designed and developed with OpenAI Codex</strong></div>
         <div class="copyright">&copy; <span id="year"></span> Vijo John. Product Ownership, Finance Platforms and Agentic AI.</div>
       </div>
     </footer>

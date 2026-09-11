@@ -4,6 +4,10 @@ A responsive, single-page portfolio for Vijo John, positioning finance,
 operations, controls, and Agentic AI experience for Product Owner and Product
 Management roles in BFSI.
 
+The visual system uses contrasting blue, mint, gold, and violet content tiles,
+with an explicit design-and-development credit for the Vijo John and OpenAI
+Codex collaboration.
+
 **Live site:** https://vijojohn.github.io
 
 ## Overview
