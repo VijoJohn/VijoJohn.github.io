@@ -84,7 +84,7 @@ h2 { font-family: 'IBM Plex Serif', Georgia, serif; font-weight: 400; font-size:
   flex-direction: column;
 }
 .case:nth-child(2n) { background: #24578b; border-color: #173c66; border-top-color: #d9b557; --card-line: #8ba9c7; --card-muted: #edf4fc; --card-accent: #ffe3a0; }
-.case.case-featured { background: #ffffff; border-color: #b99a49; border-top-color: #d9b557; --card-ink: #17365d; --card-muted: #4d6177; --card-line: #bccdde; --card-accent: #795b13; }
+.case.case-featured { background: #173c66; border-color: #b99a49; border-top-color: #d9b557; }
 .case-label { color: var(--card-accent); font-weight: 500; font-size: 11px; }
 .case h3 { color: var(--card-ink); font-family: 'IBM Plex Serif', Georgia, serif; font-size: 25px; font-weight: 500; line-height: 1.3; margin-top: 9px; }
 .case-summary { color: var(--card-muted); font-size: 15px; line-height: 1.6; min-height: 72px; }
