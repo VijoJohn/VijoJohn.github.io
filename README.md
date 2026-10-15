@@ -23,7 +23,7 @@ the copyright year. It has no build step or application dependencies.
 | Product Leadership | Product ownership, Agile delivery, Agentic AI, LLMOps, finance platforms, and governance capabilities |
 | AI Product Portfolio | Case studies framed by problem, users, product role, controls, and outcome |
 | Enterprise Product Experience | McLaren, State Street, HSBC, and Ameriprise experience |
-| Credentials | PMP, SAFe POPM, AI certifications, CIMA SCS Candidate, Six Sigma, and ISO qualifications |
+| Credentials | PMP, SAFe POPM, AI certifications, CIMA Affiliate (Professional Experience Requirement in progress), Six Sigma, and ISO qualifications |
 | Contact | LinkedIn, GitHub, email, and direct resume download |
 
 ## Featured product case studies
